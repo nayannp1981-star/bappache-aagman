@@ -1,0 +1,801 @@
+```css
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    color: #4a2b1a;
+
+    font-family: Arial, sans-serif;
+
+    overflow-x: hidden;
+
+    background:
+        linear-gradient(
+            rgba(255, 248, 235, 0.72),
+            rgba(255, 244, 225, 0.82)
+        ),
+        url("images/ganpati-bg.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+/* =========================
+   WELCOME SCREEN
+========================= */
+
+.welcome-screen {
+    position: fixed;
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(255, 248, 235, 0.70),
+            rgba(255, 239, 215, 0.82)
+        ),
+        url("images/ganpati-bg.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.welcome-content {
+    padding: 30px;
+
+    animation: fadeUp 1.5s ease;
+}
+
+.small-text {
+    font-size: 14px;
+
+    letter-spacing: 4px;
+
+    color: #b76e21;
+
+    margin-bottom: 20px;
+}
+
+.welcome-content h1 {
+    font-size: clamp(45px, 12vw, 90px);
+
+    line-height: 1.1;
+
+    color: #8b4a20;
+
+    text-shadow:
+        0 3px 15px rgba(255, 180, 90, 0.25);
+
+    margin-bottom: 20px;
+}
+
+.welcome-content p {
+    color: #6b4933;
+
+    margin-bottom: 30px;
+}
+
+.welcome-content button {
+    border: 1px solid #d89545;
+
+    background: rgba(255, 255, 255, 0.45);
+
+    color: #754018;
+
+    padding: 14px 35px;
+
+    border-radius: 50px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    backdrop-filter: blur(8px);
+}
+
+.welcome-content button:hover {
+    background: #e7a451;
+
+    color: white;
+
+    box-shadow:
+        0 8px 25px rgba(193, 119, 44, 0.25);
+}
+
+
+/* =========================
+   MUSIC BUTTON
+========================= */
+
+.music-btn {
+    position: fixed;
+
+    top: 20px;
+    right: 20px;
+
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(174, 105, 35, 0.35);
+
+    background: rgba(255, 250, 240, 0.75);
+
+    color: #7a451e;
+
+    z-index: 100;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 5px 20px rgba(125, 76, 35, 0.15);
+
+    transition: 0.3s;
+}
+
+.music-btn:hover {
+    transform: scale(1.08);
+
+    background: #e8a354;
+
+    color: white;
+}
+
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(255, 245, 225, 0.35),
+            rgba(255, 238, 213, 0.55)
+        ),
+        url("images/bappa.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+}
+
+.hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 800px;
+
+    padding: 30px;
+
+    animation: fadeUp 1.5s ease;
+}
+
+.subtitle {
+    letter-spacing: 5px;
+
+    font-size: 13px;
+
+    color: #b76e21;
+
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(50px, 11vw, 110px);
+
+    line-height: 0.95;
+
+    color: #663619;
+
+    text-shadow:
+        0 3px 15px rgba(255, 255, 255, 0.7);
+}
+
+.hero h1 span,
+h2 span {
+    color: #d47c2c;
+
+    text-shadow:
+        0 2px 10px rgba(214, 128, 45, 0.15);
+}
+
+.description {
+    max-width: 550px;
+
+    margin: 30px auto;
+
+    line-height: 1.8;
+
+    color: #684934;
+
+    opacity: 0.85;
+}
+
+.explore-btn {
+    display: inline-block;
+
+    color: #754018;
+
+    text-decoration: none;
+
+    border: 1px solid rgba(190, 120, 48, 0.55);
+
+    padding: 14px 30px;
+
+    border-radius: 50px;
+
+    transition: 0.3s;
+
+    background: rgba(255, 255, 255, 0.42);
+
+    backdrop-filter: blur(7px);
+}
+
+.explore-btn:hover {
+    background: #d98a3c;
+
+    color: white;
+
+    box-shadow:
+        0 8px 25px rgba(194, 119, 47, 0.2);
+}
+
+
+/* =========================
+   COMMON SECTIONS
+========================= */
+
+section:not(.hero) {
+    padding: 100px 7%;
+
+    position: relative;
+}
+
+.section-label {
+    color: #bd7027;
+
+    letter-spacing: 4px;
+
+    font-size: 12px;
+
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: clamp(35px, 7vw, 70px);
+
+    line-height: 1.1;
+
+    color: #633a23;
+}
+
+p {
+    line-height: 1.8;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.intro {
+    max-width: 900px;
+
+    margin: auto;
+
+    text-align: center;
+
+    background:
+        rgba(255, 250, 240, 0.45);
+
+    border-radius: 30px;
+
+    backdrop-filter: blur(4px);
+}
+
+.intro p:last-child {
+    max-width: 600px;
+
+    margin: 30px auto;
+
+    color: #72513b;
+
+    opacity: 0.85;
+}
+
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown-section {
+    text-align: center;
+
+    background:
+        rgba(255, 235, 207, 0.68);
+
+    border-top:
+        1px solid rgba(190, 125, 58, 0.18);
+
+    border-bottom:
+        1px solid rgba(190, 125, 58, 0.18);
+}
+
+.countdown {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 50px;
+
+    flex-wrap: wrap;
+}
+
+.time-box {
+    width: 110px;
+
+    height: 110px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border:
+        1px solid rgba(196, 127, 52, 0.35);
+
+    border-radius: 18px;
+
+    background:
+        rgba(255, 255, 255, 0.52);
+
+    backdrop-filter: blur(8px);
+
+    box-shadow:
+        0 10px 30px rgba(151, 92, 40, 0.10);
+}
+
+.time-box span {
+    font-size: 35px;
+
+    font-weight: bold;
+
+    color: #bd6821;
+}
+
+.time-box small {
+    color: #765039;
+
+    margin-top: 5px;
+}
+
+
+/* =========================
+   BAPPA SECTION
+========================= */
+
+.bappa-section {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 70px;
+
+    max-width: 1300px;
+
+    margin: auto;
+}
+
+.bappa-image {
+    overflow: hidden;
+
+    border-radius: 25px;
+
+    border:
+        1px solid rgba(194, 127, 54, 0.25);
+
+    box-shadow:
+        0 20px 50px rgba(112, 65, 29, 0.15);
+}
+
+.bappa-image img {
+    width: 100%;
+
+    display: block;
+
+    transition: transform 0.7s ease;
+}
+
+.bappa-image:hover img {
+    transform: scale(1.05);
+}
+
+.bappa-text p:last-child {
+    max-width: 500px;
+
+    margin-top: 25px;
+
+    color: #72513b;
+
+    opacity: 0.85;
+}
+
+
+/* =========================
+   MEMORIES / GALLERY
+========================= */
+
+.memories {
+    text-align: center;
+
+    background:
+        rgba(255, 247, 232, 0.72);
+}
+
+.gallery {
+    max-width: 1200px;
+
+    margin: 60px auto 0;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.photo-card {
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    aspect-ratio: 1 / 1;
+
+    background: #fff5e8;
+
+    border:
+        1px solid rgba(193, 123, 49, 0.22);
+
+    box-shadow:
+        0 15px 35px rgba(117, 70, 32, 0.12);
+}
+
+.photo-card img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: 0.7s;
+}
+
+.photo-card:hover img {
+    transform: scale(1.08);
+}
+
+
+/* =========================
+   LOCATION
+========================= */
+
+.location {
+    text-align: center;
+
+    background:
+        rgba(255, 235, 210, 0.68);
+}
+
+.location-card {
+    max-width: 500px;
+
+    margin: 50px auto 0;
+
+    padding: 40px 25px;
+
+    border:
+        1px solid rgba(190, 122, 50, 0.3);
+
+    border-radius: 25px;
+
+    background:
+        rgba(255, 255, 255, 0.48);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 15px 40px rgba(117, 69, 29, 0.12);
+}
+
+.location-icon {
+    font-size: 40px;
+
+    margin-bottom: 20px;
+}
+
+.location-card h3 {
+    font-size: 28px;
+
+    color: #8a4b22;
+
+    margin-bottom: 10px;
+}
+
+.location-card p {
+    color: #76523b;
+
+    opacity: 0.8;
+
+    margin-bottom: 25px;
+}
+
+.map-btn {
+    display: inline-block;
+
+    padding: 12px 25px;
+
+    border-radius: 50px;
+
+    background: #df9245;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.map-btn:hover {
+    background: #c87528;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   FINAL SECTION
+========================= */
+
+.final-section {
+    min-height: 90vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(255, 247, 232, 0.55),
+            rgba(255, 231, 203, 0.72)
+        ),
+        url("images/ganpati-bg.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+}
+
+.final-content h1 {
+    font-size: clamp(55px, 12vw, 120px);
+
+    line-height: 0.95;
+
+    color: #663719;
+}
+
+.final-content h1 span {
+    color: #d47b2c;
+}
+
+.final-content p:not(.section-label) {
+    margin-top: 30px;
+
+    color: #704c34;
+
+    opacity: 0.8;
+}
+
+.om {
+    font-size: 70px;
+
+    margin-top: 30px;
+
+    color: #d58a3b;
+
+    text-shadow:
+        0 0 25px rgba(213, 138, 59, 0.25);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+
+    padding: 25px;
+
+    background: #f1d9b8;
+
+    color: #704b31;
+
+    opacity: 0.95;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    section:not(.hero) {
+        padding: 75px 20px;
+    }
+
+    .hero {
+        min-height: 100svh;
+    }
+
+    .hero h1 {
+        font-size: 58px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+
+    .bappa-section {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+    .bappa-text {
+        text-align: center;
+    }
+
+    .bappa-text p:last-child {
+        margin-left: auto;
+
+        margin-right: auto;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 10px;
+    }
+
+    .time-box {
+        width: 75px;
+
+        height: 80px;
+    }
+
+    .time-box span {
+        font-size: 25px;
+    }
+
+    .time-box small {
+        font-size: 10px;
+    }
+
+    .welcome-content h1 {
+        font-size: 50px;
+    }
+
+    .music-btn {
+        top: 15px;
+
+        right: 15px;
+    }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 400px) {
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .countdown {
+        gap: 8px;
+    }
+
+    .time-box {
+        width: 68px;
+
+        height: 75px;
+    }
+
+    .time-box span {
+        font-size: 22px;
+    }
+}
+```
+
+**??? `ganpati-bg.jpg` background clearly ?????**, ??? ????? image ???? cream/peach/gold palette ?? ????? website match ????.
+
+?? ?????????? ???: ?? background ???? dark overlay ?????? ????? ????? ???. ???????? ???? ???? ?????? **light Ganpati image ???? ????? ????.**

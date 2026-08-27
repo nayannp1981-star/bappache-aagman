@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>????? ?????? ????? ??</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- LOADING / WELCOME SCREEN -->
+    <div class="welcome-screen" id="welcomeScreen">
+
+        <div class="welcome-content">
+
+            <p class="small-text">???? ?????? ???</p>
+
+            <h1>????? ??????<br>????? ??</h1>
+
+            <p>?????? ??????? ?????????? ??????? ?????...</p>
+
+            <button onclick="enterWebsite()">
+                ?????? ???
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- MUSIC -->
+    <audio id="bgMusic" loop>
+        <source src="music/bhajan.mp3" type="audio/mpeg">
+    </audio>
+
+    <button class="music-btn" onclick="toggleMusic()" id="musicBtn">
+        ??
+    </button>
+
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+
+        <div class="overlay"></div>
+
+        <div class="hero-content">
+
+            <p class="subtitle">???? ?????? ???</p>
+
+            <h1>
+                ?????? ???????<br>
+                <span>????????</span><br>
+                ????
+            </h1>
+
+            <p class="description">
+                ?????, ???? ??? ?????????
+                ???????? ?????? ??????????
+                ???? ???????? ?????? ???.
+            </p>
+
+            <a href="#memories" class="explore-btn">
+                ????? ??? ?
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+    <section class="intro">
+
+        <p class="section-label">WELCOME BAPPA</p>
+
+        <h2>
+            ?????? ?????<br>
+            <span>???? ???? ??</span>
+        </h2>
+
+        <p>
+            ????? ???????? ???? ??????
+            ?????? ???? ????, ???????????
+            ??? ??????? ????.
+        </p>
+
+    </section>
+
+
+    <!-- COUNTDOWN -->
+    <section class="countdown-section">
+
+        <p class="section-label">COUNTDOWN</p>
+
+        <h2>?????????? ?????????</h2>
+
+        <div class="countdown">
+
+            <div class="time-box">
+                <span id="days">00</span>
+                <small>????</small>
+            </div>
+
+            <div class="time-box">
+                <span id="hours">00</span>
+                <small>???</small>
+            </div>
+
+            <div class="time-box">
+                <span id="minutes">00</span>
+                <small>??????</small>
+            </div>
+
+            <div class="time-box">
+                <span id="seconds">00</span>
+                <small>?????</small>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- BAPPA IMAGE -->
+    <section class="bappa-section">
+
+        <div class="bappa-image">
+            <img src="images/bappa.jpg" alt="Ganpati Bappa">
+        </div>
+
+        <div class="bappa-text">
+
+            <p class="section-label">OUR BAPPA</p>
+
+            <h2>
+                ????? ??<br>
+                <span>????? ??</span>
+            </h2>
+
+            <p>
+                ??????????, ??????????,
+                ?????? ?????????? ????????
+                ???, ??????? ??? ???? ???? ????.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- MEMORIES -->
+    <section class="memories" id="memories">
+
+        <p class="section-label">MEMORIES</p>
+
+        <h2>?????? ???? <span>?????</span></h2>
+
+        <div class="gallery">
+
+            <div class="photo-card">
+                <img src="images/photo1.jpg" alt="Memory 1">
+            </div>
+
+            <div class="photo-card">
+                <img src="images/photo2.jpg" alt="Memory 2">
+            </div>
+
+            <div class="photo-card">
+                <img src="images/photo3.jpg" alt="Memory 3">
+            </div>
+
+            <div class="photo-card">
+                <img src="images/photo4.jpg" alt="Memory 4">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- LOCATION -->
+    <section class="location">
+
+        <p class="section-label">LOCATION</p>
+
+        <h2>???????? <span>????</span></h2>
+
+        <div class="location-card">
+
+            <div class="location-icon">
+                ??
+            </div>
+
+            <h3>???? ??</h3>
+
+            <p>
+                ???? ????? ????? ????? ????
+            </p>
+
+            <a
+                href="https://maps.google.com/"
+                target="_blank"
+                class="map-btn">
+                Google Maps ?? ???
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FINAL MESSAGE -->
+    <section class="final-section">
+
+        <div class="final-content">
+
+            <p class="section-label">GANPATI BAPPA MORYA</p>
+
+            <h1>
+                ???? ?????<br>
+                <span>???? ?? ??</span>
+            </h1>
+
+            <p>
+                ????? ?????? ?????!<br>
+                ?????????? ?????!
+            </p>
+
+            <div class="om">
+                ?
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        Made with ?? & Devotion
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
