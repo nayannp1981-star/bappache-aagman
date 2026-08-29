@@ -2,245 +2,160 @@
 <html lang="mr">
 <head>
   <meta charset="UTF-8">
-  <title>गणपती बाप्पा मोरया</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>बाप्पाचे आगमन</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Tiro+Devanagari+Marathi&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
 </head>
-    
 
 <body>
+  <section id="welcome" class="welcome">
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
 
-    <!-- LOADING / WELCOME SCREEN -->
-    <div class="welcome-screen" id="welcomeScreen">
-
-        <div class="welcome-content">
-
-            <p class="small-text">???? ?????? ???</p>
-
-            <h1>????? ??????<br>????? ??</h1>
-
-            <p>?????? ??????? ?????????? ??????? ?????...</p>
-
-            <button onclick="enterWebsite()">
-                ?????? ???
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- MUSIC -->
-    <audio id="bgMusic" loop>
-        <source src="music/bhajan.mp3" type="audio/mpeg">
-    </audio>
-
-    <button class="music-btn" onclick="toggleMusic()" id="musicBtn">
-        ??
+    <button id="enterButton" class="gold-seal">
+      <span class="seal-om">ॐ</span>
+      <span>निमंत्रण<br>उघडा</span>
     </button>
 
+    <p class="tap-note">स्पर्श करून निमंत्रण उघडा</p>
+  </section>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
+  <main id="invitation" class="invitation" hidden>
+    <header class="site-header">
+      <a class="brand" href="#home">
+        <span class="brand-mark">ॐ</span>
+        <span>श्री गणेशाय नमः</span>
+      </a>
 
-        <div class="overlay"></div>
+      <button id="musicButton" class="music-button">
+        <span>♫</span>
+      </button>
+    </header>
 
-        <div class="hero-content">
+    <audio id="aartiAudio" loop>
+      <source src="aarti.mp3" type="audio/mpeg">
+    </audio>
 
-            <p class="subtitle">???? ?????? ???</p>
+    <section id="home" class="hero section-shell">
+      <div class="hero-copy reveal">
+        <p class="kicker">आमच्या घरी गणरायाचे</p>
+        <h1>बाप्पाचे<br>आगमन</h1>
+        <div class="gold-rule"><span>✦</span></div>
+      </div>
 
-            <h1>
-                ?????? ???????<br>
-                <span>????????</span><br>
-                ????
-            </h1>
+      <div class="temple-frame reveal">
+        <div class="temple-arch"></div>
+        <div class="halo"></div>
 
-            <p class="description">
-                ?????, ???? ??? ?????????
-                ???????? ?????? ??????????
-                ???? ???????? ?????? ???.
-            </p>
+        <img
+          class="bappa-image"
+          src="bappa.jpg.jpeg"
+          alt="श्री गणेशाची मूर्ती"
+          onerror="this.style.display='none'"
+        >
 
-            <a href="#memories" class="explore-btn">
-                ????? ??? ?
-            </a>
+        <div class="bappa-fallback">ॐ</div>
+      </div>
 
-        </div>
-
+      <p class="hero-prayer reveal">
+        वक्रतुंड महाकाय सूर्यकोटि समप्रभ ।<br>
+        निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥
+      </p>
     </section>
 
+    <section class="memories section-shell">
+      <p class="section-label reveal">गणेशोत्सवाच्या आठवणी</p>
 
-    <!-- INTRO -->
-    <section class="intro">
+      <h2 class="memories-title reveal">
+        मागील वर्षांचे<br>सोनेरी क्षण
+      </h2>
 
-        <p class="section-label">WELCOME BAPPA</p>
+      <div class="memory-grid reveal">
+        <figure>
+          <img src="photo1.jpg.jpeg" alt="गणरायाचे आगमन">
+          <figcaption>गणरायाचे आगमन</figcaption>
+        </figure>
 
-        <h2>
-            ?????? ?????<br>
-            <span>???? ???? ??</span>
-        </h2>
+        <figure>
+          <img src="photo2.jpg.jpeg" alt="भक्तीमय आरती">
+          <figcaption>भक्तीमय आरती</figcaption>
+        </figure>
 
-        <p>
-            ????? ???????? ???? ??????
-            ?????? ???? ????, ???????????
-            ??? ??????? ????.
-        </p>
+        <figure>
+          <img src="photo3.jpg.jpeg" alt="आनंदाचे क्षण">
+          <figcaption>आनंदाचे क्षण</figcaption>
+        </figure>
 
+        <figure>
+          <img src="photo4.jpg.jpeg" alt="बाप्पाचा निरोप">
+          <figcaption>बाप्पाचा निरोप</figcaption>
+        </figure>
+      </div>
+
+      <p class="host-message reveal">
+        आपण सहकुटुंब उपस्थित राहून<br>
+        बाप्पाचा आशीर्वाद घ्यावा, ही नम्र विनंती.
+      </p>
     </section>
 
+    <section class="schedule section-shell">
+      <p class="section-label reveal">श्री गणेश उत्सव</p>
 
-    <!-- COUNTDOWN -->
-    <section class="countdown-section">
+      <h2 class="date reveal">
+        १४ सप्टेंबर २०२६<br>
+        ते<br>
+        १४ सप्टेंबर २०२६
+      </h2>
 
-        <p class="section-label">COUNTDOWN</p>
+      <div class="gold-rule reveal"><span>✦</span></div>
 
-        <h2>?????????? ?????????</h2>
-
-        <div class="countdown">
-
-            <div class="time-box">
-                <span id="days">00</span>
-                <small>????</small>
-            </div>
-
-            <div class="time-box">
-                <span id="hours">00</span>
-                <small>???</small>
-            </div>
-
-            <div class="time-box">
-                <span id="minutes">00</span>
-                <small>??????</small>
-            </div>
-
-            <div class="time-box">
-                <span id="seconds">00</span>
-                <small>?????</small>
-            </div>
-
+      <dl class="timings reveal">
+        <div>
+          <dt>स्थापना</dt>
+          <dd>सकाळी ८:००</dd>
         </div>
 
+        <div>
+          <dt>महाआरती</dt>
+          <dd>दुपारी १२:००</dd>
+        </div>
+
+        <div>
+          <dt>संध्याआरती</dt>
+          <dd>सायंकाळी ७:३०</dd>
+        </div>
+      </dl>
     </section>
 
+    <section class="address section-shell">
+      <p class="section-label reveal">आपले स्वागत आहे</p>
 
-    <!-- BAPPA IMAGE -->
-    <section class="bappa-section">
+      <h2 class="address-name reveal">कृष्णाई निवास</h2>
 
-        <div class="bappa-image">
-            <img src="images/bappa.jpg" alt="Ganpati Bappa">
-        </div>
+      <p class="address-copy reveal">
+        फ्लॅट नं. २२, गणेशनगर, चिंचवड, पुणे<br>
+        महाराष्ट्र
+      </p>
 
-        <div class="bappa-text">
-
-            <p class="section-label">OUR BAPPA</p>
-
-            <h2>
-                ????? ??<br>
-                <span>????? ??</span>
-            </h2>
-
-            <p>
-                ??????????, ??????????,
-                ?????? ?????????? ????????
-                ???, ??????? ??? ???? ???? ????.
-            </p>
-
-        </div>
-
+      <a
+        class="map-button reveal"
+        href="https://www.google.com/maps/search/?api=1&query=Ganesh%20Nagar%2C%20Chinchwad%2C%20Pune"
+        target="_blank"
+      >
+        मार्ग पहा ↗
+      </a>
     </section>
-
-
-    <!-- MEMORIES -->
-    <section class="memories" id="memories">
-
-        <p class="section-label">MEMORIES</p>
-
-        <h2>?????? ???? <span>?????</span></h2>
-
-        <div class="gallery">
-
-            <div class="photo-card">
-                <img src="images/photo1.jpg" alt="Memory 1">
-            </div>
-
-            <div class="photo-card">
-                <img src="images/photo2.jpg" alt="Memory 2">
-            </div>
-
-            <div class="photo-card">
-                <img src="images/photo3.jpg" alt="Memory 3">
-            </div>
-
-            <div class="photo-card">
-                <img src="images/photo4.jpg" alt="Memory 4">
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- LOCATION -->
-    <section class="location">
-
-        <p class="section-label">LOCATION</p>
-
-        <h2>???????? <span>????</span></h2>
-
-        <div class="location-card">
-
-            <div class="location-icon">
-                ??
-            </div>
-
-            <h3>???? ??</h3>
-
-            <p>
-                ???? ????? ????? ????? ????
-            </p>
-
-            <a
-                href="https://maps.google.com/"
-                target="_blank"
-                class="map-btn">
-                Google Maps ?? ???
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- FINAL MESSAGE -->
-    <section class="final-section">
-
-        <div class="final-content">
-
-            <p class="section-label">GANPATI BAPPA MORYA</p>
-
-            <h1>
-                ???? ?????<br>
-                <span>???? ?? ??</span>
-            </h1>
-
-            <p>
-                ????? ?????? ?????!<br>
-                ?????????? ?????!
-            </p>
-
-            <div class="om">
-                ?
-            </div>
-
-        </div>
-
-    </section>
-
 
     <footer>
-        Made with ?? & Devotion
+      गणपती बाप्पा मोरया • मंगलमूर्ती मोरया
     </footer>
+  </main>
 
-
-    <script src="script.js"></script>
-
+  <script src="script.js"></script>
 </body>
 </html>

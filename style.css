@@ -1,801 +1,478 @@
-```css
-/* =========================
-   RESET
-========================= */
+:root {
+  --ink: #4c2c18;
+  --gold: #b96b1c;
+  --gold-pale: #784016;
+  --ivory: #4c2c18;
+  --muted: #795d43;
+}
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    margin: 0;
-
-    color: #4a2b1a;
-
-    font-family: Arial, sans-serif;
-
-    overflow-x: hidden;
-
-    background:
-        linear-gradient(
-            rgba(255, 248, 235, 0.72),
-            rgba(255, 244, 225, 0.82)
-        ),
-        url("images/ganpati-bg.jpg");
-
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+  margin: 0;
+  min-width: 320px;
+  background: #fff7e6 url("ganpati-bg.jpg.jpeg") center / cover fixed;
+  color: var(--ivory);
+  font-family: "Noto Sans Devanagari", sans-serif;
 }
 
-
-/* =========================
-   WELCOME SCREEN
-========================= */
-
-.welcome-screen {
-    position: fixed;
-    inset: 0;
-
-    z-index: 9999;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-
-    background:
-        linear-gradient(
-            rgba(255, 248, 235, 0.70),
-            rgba(255, 239, 215, 0.82)
-        ),
-        url("images/ganpati-bg.jpg");
-
-    background-size: cover;
-    background-position: center;
+button,
+a {
+  font: inherit;
 }
 
-.welcome-content {
-    padding: 30px;
-
-    animation: fadeUp 1.5s ease;
+.welcome {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 28px;
+  min-height: 100svh;
+  overflow: hidden;
+  background: linear-gradient(#fff8e9df, #fff0d3e8),
+    url("ganpati-bg.jpg.jpeg") center / cover;
+  transition: opacity 0.65s ease, visibility 0.65s ease;
 }
 
-.small-text {
-    font-size: 14px;
-
-    letter-spacing: 4px;
-
-    color: #b76e21;
-
-    margin-bottom: 20px;
+.welcome.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
-.welcome-content h1 {
-    font-size: clamp(45px, 12vw, 90px);
-
-    line-height: 1.1;
-
-    color: #8b4a20;
-
-    text-shadow:
-        0 3px 15px rgba(255, 180, 90, 0.25);
-
-    margin-bottom: 20px;
+.ambient {
+  position: absolute;
+  filter: blur(55px);
+  border-radius: 50%;
+  opacity: 0.22;
 }
 
-.welcome-content p {
-    color: #6b4933;
-
-    margin-bottom: 30px;
+.ambient-one {
+  width: 150px;
+  height: 66vh;
+  background: #ffbe4e;
+  top: -9vh;
+  left: calc(50% - 75px);
 }
 
-.welcome-content button {
-    border: 1px solid #d89545;
-
-    background: rgba(255, 255, 255, 0.45);
-
-    color: #754018;
-
-    padding: 14px 35px;
-
-    border-radius: 50px;
-
-    font-size: 16px;
-
-    cursor: pointer;
-
-    transition: 0.3s;
-
-    backdrop-filter: blur(8px);
+.ambient-two {
+  width: 230px;
+  height: 230px;
+  background: #e7b45a;
+  bottom: -130px;
+  left: -60px;
 }
 
-.welcome-content button:hover {
-    background: #e7a451;
-
-    color: white;
-
-    box-shadow:
-        0 8px 25px rgba(193, 119, 44, 0.25);
+.gold-seal {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 142px;
+  height: 142px;
+  border: 2px solid #fff0a2;
+  border-radius: 50%;
+  color: #704016;
+  background: radial-gradient(circle at 37% 30%, #fff9b7, #f3c449 48%, #b87717);
+  box-shadow: 0 0 0 7px #d99d3280, 0 0 38px #ffc946c0, inset 0 0 24px #fff3a2;
+  cursor: pointer;
+  font-size: 0.78rem;
+  line-height: 1.25;
+  font-weight: 700;
 }
 
-
-/* =========================
-   MUSIC BUTTON
-========================= */
-
-.music-btn {
-    position: fixed;
-
-    top: 20px;
-    right: 20px;
-
-    width: 45px;
-    height: 45px;
-
-    border-radius: 50%;
-
-    border: 1px solid rgba(174, 105, 35, 0.35);
-
-    background: rgba(255, 250, 240, 0.75);
-
-    color: #7a451e;
-
-    z-index: 100;
-
-    cursor: pointer;
-
-    backdrop-filter: blur(10px);
-
-    box-shadow:
-        0 5px 20px rgba(125, 76, 35, 0.15);
-
-    transition: 0.3s;
+.seal-om {
+  font-family: "Tiro Devanagari Marathi", serif;
+  font-size: 3.1rem;
+  line-height: 0.8;
 }
 
-.music-btn:hover {
-    transform: scale(1.08);
-
-    background: #e8a354;
-
-    color: white;
+.tap-note {
+  position: relative;
+  margin: 0;
+  color: #704016;
+  font-size: 0.84rem;
 }
 
+.invitation {
+  overflow: hidden;
+  min-height: 100vh;
+  background: linear-gradient(#fff9eadb, #fff5e1e8),
+    url("ganpati-bg.jpg.jpeg") center / cover fixed;
+}
 
-/* =========================
-   HERO SECTION
-========================= */
+.site-header {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 50%;
+  width: min(100%, 560px);
+  padding: 22px 24px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--gold-pale);
+  text-decoration: none;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 27px;
+  height: 27px;
+  border: 1px solid #b96b1c88;
+  border-radius: 50%;
+  color: var(--gold);
+  font-family: "Tiro Devanagari Marathi", serif;
+  font-size: 1.15rem;
+}
+
+.music-button {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid #b96b1c99;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #ffec96, #e6b34d);
+  color: #543314;
+  box-shadow: 0 4px 12px #9b641c33;
+  cursor: pointer;
+  font-size: 1.15rem;
+}
+
+.section-shell {
+  width: min(100%, 560px);
+  margin: 0 auto;
+  padding-left: 27px;
+  padding-right: 27px;
+  text-align: center;
+}
 
 .hero {
-    min-height: 100vh;
-
-    position: relative;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    text-align: center;
-
-    background:
-        linear-gradient(
-            rgba(255, 245, 225, 0.35),
-            rgba(255, 238, 213, 0.55)
-        ),
-        url("images/bappa.jpg");
-
-    background-size: cover;
-
-    background-position: center;
+  position: relative;
+  min-height: 100svh;
+  padding-top: 135px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.hero-content {
-    position: relative;
-
-    z-index: 2;
-
-    max-width: 800px;
-
-    padding: 30px;
-
-    animation: fadeUp 1.5s ease;
-}
-
-.subtitle {
-    letter-spacing: 5px;
-
-    font-size: 13px;
-
-    color: #b76e21;
-
-    margin-bottom: 25px;
-}
-
-.hero h1 {
-    font-size: clamp(50px, 11vw, 110px);
-
-    line-height: 0.95;
-
-    color: #663619;
-
-    text-shadow:
-        0 3px 15px rgba(255, 255, 255, 0.7);
-}
-
-.hero h1 span,
-h2 span {
-    color: #d47c2c;
-
-    text-shadow:
-        0 2px 10px rgba(214, 128, 45, 0.15);
-}
-
-.description {
-    max-width: 550px;
-
-    margin: 30px auto;
-
-    line-height: 1.8;
-
-    color: #684934;
-
-    opacity: 0.85;
-}
-
-.explore-btn {
-    display: inline-block;
-
-    color: #754018;
-
-    text-decoration: none;
-
-    border: 1px solid rgba(190, 120, 48, 0.55);
-
-    padding: 14px 30px;
-
-    border-radius: 50px;
-
-    transition: 0.3s;
-
-    background: rgba(255, 255, 255, 0.42);
-
-    backdrop-filter: blur(7px);
-}
-
-.explore-btn:hover {
-    background: #d98a3c;
-
-    color: white;
-
-    box-shadow:
-        0 8px 25px rgba(194, 119, 47, 0.2);
-}
-
-
-/* =========================
-   COMMON SECTIONS
-========================= */
-
-section:not(.hero) {
-    padding: 100px 7%;
-
-    position: relative;
-}
-
+.kicker,
 .section-label {
-    color: #bd7027;
-
-    letter-spacing: 4px;
-
-    font-size: 12px;
-
-    margin-bottom: 20px;
+  margin: 0;
+  color: var(--gold-pale);
+  font-size: 0.84rem;
+  font-weight: 700;
 }
 
-h2 {
-    font-size: clamp(35px, 7vw, 70px);
-
-    line-height: 1.1;
-
-    color: #633a23;
-}
-
+h1,
+h2,
 p {
-    line-height: 1.8;
+  text-wrap: balance;
 }
 
-
-/* =========================
-   INTRO
-========================= */
-
-.intro {
-    max-width: 900px;
-
-    margin: auto;
-
-    text-align: center;
-
-    background:
-        rgba(255, 250, 240, 0.45);
-
-    border-radius: 30px;
-
-    backdrop-filter: blur(4px);
+h1 {
+  margin: 9px 0 4px;
+  color: var(--gold);
+  font-family: "Tiro Devanagari Marathi", serif;
+  font-size: clamp(3.55rem, 15vw, 5.3rem);
+  line-height: 0.92;
 }
 
-.intro p:last-child {
-    max-width: 600px;
-
-    margin: 30px auto;
-
-    color: #72513b;
-
-    opacity: 0.85;
+.gold-rule {
+  width: 142px;
+  height: 20px;
+  margin: 11px auto 0;
+  display: grid;
+  place-items: center;
+  color: var(--gold);
+  font-size: 0.75rem;
 }
 
-
-/* =========================
-   COUNTDOWN
-========================= */
-
-.countdown-section {
-    text-align: center;
-
-    background:
-        rgba(255, 235, 207, 0.68);
-
-    border-top:
-        1px solid rgba(190, 125, 58, 0.18);
-
-    border-bottom:
-        1px solid rgba(190, 125, 58, 0.18);
+.gold-rule::before,
+.gold-rule::after {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 52px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+  transform: translateY(10px);
 }
 
-.countdown {
-    display: flex;
-
-    justify-content: center;
-
-    gap: 15px;
-
-    margin-top: 50px;
-
-    flex-wrap: wrap;
+.gold-rule::after {
+  background: linear-gradient(90deg, var(--gold), transparent);
+  justify-self: end;
 }
 
-.time-box {
-    width: 110px;
-
-    height: 110px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    align-items: center;
-
-    border:
-        1px solid rgba(196, 127, 52, 0.35);
-
-    border-radius: 18px;
-
-    background:
-        rgba(255, 255, 255, 0.52);
-
-    backdrop-filter: blur(8px);
-
-    box-shadow:
-        0 10px 30px rgba(151, 92, 40, 0.10);
+.gold-rule span {
+  z-index: 1;
+  grid-area: 1 / 1;
 }
 
-.time-box span {
-    font-size: 35px;
-
-    font-weight: bold;
-
-    color: #bd6821;
+.temple-frame {
+  position: relative;
+  width: min(89vw, 390px);
+  height: 360px;
+  margin-top: 17px;
+  display: grid;
+  place-items: end center;
+  overflow: hidden;
 }
 
-.time-box small {
-    color: #765039;
-
-    margin-top: 5px;
+.temple-arch {
+  position: absolute;
+  inset: 23px 12px -32px;
+  border: 4px solid #b96b1cbb;
+  border-bottom: 0;
+  border-radius: 52% 52% 0 0 / 29% 29% 0 0;
+  box-shadow: 0 0 18px #d78b2b48, inset 0 0 35px #fff1bd;
 }
 
+.temple-arch::before {
+  content: "";
+  position: absolute;
+  inset: 35px 15px 0;
+  border: 2px solid #e8ca6e55;
+  border-bottom: 0;
+  border-radius: 52% 52% 0 0 / 29% 29% 0 0;
+}
 
-/* =========================
-   BAPPA SECTION
-========================= */
-
-.bappa-section {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    align-items: center;
-
-    gap: 70px;
-
-    max-width: 1300px;
-
-    margin: auto;
+.halo {
+  position: absolute;
+  top: 101px;
+  width: 196px;
+  height: 196px;
+  border: 1px solid #b96b1c55;
+  border-radius: 50%;
+  background: repeating-conic-gradient(
+    from 0deg,
+    #e8b84525 0deg 5deg,
+    transparent 5deg 10deg
+  );
+  box-shadow: 0 0 70px #e4a93455;
 }
 
 .bappa-image {
-    overflow: hidden;
-
-    border-radius: 25px;
-
-    border:
-        1px solid rgba(194, 127, 54, 0.25);
-
-    box-shadow:
-        0 20px 50px rgba(112, 65, 29, 0.15);
+  position: relative;
+  z-index: 2;
+  width: min(76%, 265px);
+  max-height: 290px;
+  object-fit: contain;
+  object-position: bottom;
 }
 
-.bappa-image img {
-    width: 100%;
-
-    display: block;
-
-    transition: transform 0.7s ease;
+.bappa-fallback {
+  position: absolute;
+  z-index: 1;
+  bottom: 35px;
+  display: grid;
+  place-items: center;
+  width: 145px;
+  height: 145px;
+  border-radius: 48% 48% 42% 42%;
+  color: #ffde75;
+  background: radial-gradient(circle, #c87927, #66310f);
+  box-shadow: 0 0 35px #e9ac3e99;
+  font-family: "Tiro Devanagari Marathi", serif;
+  font-size: 6rem;
+  opacity: 0.88;
 }
 
-.bappa-image:hover img {
-    transform: scale(1.05);
+.bappa-image:not([style*="display: none"]) + .bappa-fallback {
+  opacity: 0;
 }
 
-.bappa-text p:last-child {
-    max-width: 500px;
-
-    margin-top: 25px;
-
-    color: #72513b;
-
-    opacity: 0.85;
+.hero-prayer {
+  margin: -10px 0 35px;
+  color: var(--muted);
+  font-family: "Tiro Devanagari Marathi", serif;
+  font-size: 0.83rem;
+  line-height: 1.6;
 }
 
-
-/* =========================
-   MEMORIES / GALLERY
-========================= */
-
-.memories {
-    text-align: center;
-
-    background:
-        rgba(255, 247, 232, 0.72);
+.memories,
+.schedule,
+.address {
+  position: relative;
+  padding-top: 76px;
+  padding-bottom: 76px;
 }
 
-.gallery {
-    max-width: 1200px;
-
-    margin: 60px auto 0;
-
-    display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 20px;
+.memories::before,
+.schedule::before,
+.address::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(78%, 390px);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, #b96b1c88, transparent);
 }
 
-.photo-card {
-    overflow: hidden;
-
-    border-radius: 20px;
-
-    aspect-ratio: 1 / 1;
-
-    background: #fff5e8;
-
-    border:
-        1px solid rgba(193, 123, 49, 0.22);
-
-    box-shadow:
-        0 15px 35px rgba(117, 70, 32, 0.12);
+.memories-title,
+.address-name {
+  margin: 14px 0 0;
+  color: var(--gold-pale);
+  font-family: "Tiro Devanagari Marathi", serif;
+  font-size: clamp(2.15rem, 10vw, 3rem);
+  line-height: 1;
 }
 
-.photo-card img {
-    width: 100%;
-
-    height: 100%;
-
-    object-fit: cover;
-
-    transition: 0.7s;
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 13px;
+  margin-top: 25px;
 }
 
-.photo-card:hover img {
-    transform: scale(1.08);
+.memory-grid figure {
+  margin: 0;
+  overflow: hidden;
+  border: 3px solid #fff8dd;
+  border-radius: 15px;
+  background: #f2d49b;
+  box-shadow: 0 5px 14px #84551b33;
 }
 
-
-/* =========================
-   LOCATION
-========================= */
-
-.location {
-    text-align: center;
-
-    background:
-        rgba(255, 235, 210, 0.68);
+.memory-grid img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 0.82;
+  object-fit: cover;
 }
 
-.location-card {
-    max-width: 500px;
-
-    margin: 50px auto 0;
-
-    padding: 40px 25px;
-
-    border:
-        1px solid rgba(190, 122, 50, 0.3);
-
-    border-radius: 25px;
-
-    background:
-        rgba(255, 255, 255, 0.48);
-
-    backdrop-filter: blur(10px);
-
-    box-shadow:
-        0 15px 40px rgba(117, 69, 29, 0.12);
+.memory-grid figcaption {
+  padding: 8px 6px 7px;
+  color: #704016;
+  font-size: 0.7rem;
+  font-weight: 700;
 }
 
-.location-icon {
-    font-size: 40px;
-
-    margin-bottom: 20px;
+.host-message,
+.address-copy {
+  margin: 16px auto 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.8;
 }
 
-.location-card h3 {
-    font-size: 28px;
-
-    color: #8a4b22;
-
-    margin-bottom: 10px;
+.schedule {
+  background: linear-gradient(90deg, transparent, #fff3d4bf, transparent);
 }
 
-.location-card p {
-    color: #76523b;
-
-    opacity: 0.8;
-
-    margin-bottom: 25px;
+.date {
+  margin: 18px 0 3px;
+  color: var(--ivory);
+  font-family: "Tiro Devanagari Marathi", serif;
+  font-size: clamp(2rem, 9vw, 2.75rem);
+  line-height: 1.16;
 }
 
-.map-btn {
-    display: inline-block;
-
-    padding: 12px 25px;
-
-    border-radius: 50px;
-
-    background: #df9245;
-
-    color: white;
-
-    text-decoration: none;
-
-    font-weight: bold;
-
-    transition: 0.3s;
+.timings {
+  width: min(100%, 310px);
+  margin: 26px auto 0;
+  display: grid;
+  gap: 14px;
 }
 
-.map-btn:hover {
-    background: #c87528;
-
-    transform: translateY(-2px);
+.timings div {
+  display: grid;
+  grid-template-columns: 1fr 1.12fr;
+  align-items: baseline;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #efd06a35;
+  text-align: left;
 }
 
-
-/* =========================
-   FINAL SECTION
-========================= */
-
-.final-section {
-    min-height: 90vh;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    text-align: center;
-
-    background:
-        linear-gradient(
-            rgba(255, 247, 232, 0.55),
-            rgba(255, 231, 203, 0.72)
-        ),
-        url("images/ganpati-bg.jpg");
-
-    background-size: cover;
-
-    background-position: center;
+.timings dt {
+  color: #795d43;
+  font-size: 0.87rem;
 }
 
-.final-content h1 {
-    font-size: clamp(55px, 12vw, 120px);
-
-    line-height: 0.95;
-
-    color: #663719;
+.timings dd {
+  margin: 0;
+  color: var(--gold-pale);
+  font-family: "Tiro Devanagari Marathi", serif;
+  font-size: 1.15rem;
+  font-weight: 700;
 }
 
-.final-content h1 span {
-    color: #d47b2c;
+.address {
+  padding-bottom: 86px;
+  background: radial-gradient(ellipse at 50% 65%, #f0cf7d55, transparent 62%);
 }
 
-.final-content p:not(.section-label) {
-    margin-top: 30px;
-
-    color: #704c34;
-
-    opacity: 0.8;
+.address-name {
+  margin-top: 17px;
+  color: var(--gold);
 }
 
-.om {
-    font-size: 70px;
-
-    margin-top: 30px;
-
-    color: #d58a3b;
-
-    text-shadow:
-        0 0 25px rgba(213, 138, 59, 0.25);
+.map-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 27px;
+  padding: 13px 26px 11px;
+  border: 1px solid #b96b1c;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #ffec96, #e6b34d);
+  color: #4d3316;
+  box-shadow: 0 4px 10px #9b641c33;
+  font-weight: 800;
+  text-decoration: none;
 }
-
-
-/* =========================
-   FOOTER
-========================= */
 
 footer {
-    text-align: center;
-
-    padding: 25px;
-
-    background: #f1d9b8;
-
-    color: #704b31;
-
-    opacity: 0.95;
-
-    font-size: 13px;
+  padding: 22px;
+  border-top: 1px solid #b96b1c52;
+  color: #795d43;
+  text-align: center;
+  font-family: "Tiro Devanagari Marathi", serif;
+  font-size: 0.9rem;
 }
 
-
-/* =========================
-   ANIMATION
-========================= */
-
-@keyframes fadeUp {
-
-    from {
-        opacity: 0;
-
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform: translateY(0);
-    }
-
+footer span {
+  color: var(--gold);
+  padding: 0 6px;
 }
 
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 700px) {
-
-    section:not(.hero) {
-        padding: 75px 20px;
-    }
-
-    .hero {
-        min-height: 100svh;
-    }
-
-    .hero h1 {
-        font-size: 58px;
-    }
-
-    .description {
-        font-size: 14px;
-    }
-
-    .bappa-section {
-        grid-template-columns: 1fr;
-
-        gap: 40px;
-    }
-
-    .bappa-text {
-        text-align: center;
-    }
-
-    .bappa-text p:last-child {
-        margin-left: auto;
-
-        margin-right: auto;
-    }
-
-    .gallery {
-        grid-template-columns: 1fr 1fr;
-
-        gap: 10px;
-    }
-
-    .time-box {
-        width: 75px;
-
-        height: 80px;
-    }
-
-    .time-box span {
-        font-size: 25px;
-    }
-
-    .time-box small {
-        font-size: 10px;
-    }
-
-    .welcome-content h1 {
-        font-size: 50px;
-    }
-
-    .music-btn {
-        top: 15px;
-
-        right: 15px;
-    }
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
-
-/* =========================
-   SMALL MOBILE
-========================= */
-
-@media (max-width: 400px) {
-
-    .hero h1 {
-        font-size: 48px;
-    }
-
-    .countdown {
-        gap: 8px;
-    }
-
-    .time-box {
-        width: 68px;
-
-        height: 75px;
-    }
-
-    .time-box span {
-        font-size: 22px;
-    }
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
 }
-```
 
-**??? `ganpati-bg.jpg` background clearly ?????**, ??? ????? image ???? cream/peach/gold palette ?? ????? website match ????.
+@media (min-width: 600px) {
+  .hero {
+    min-height: 850px;
+  }
 
-?? ?????????? ???: ?? background ???? dark overlay ?????? ????? ????? ???. ???????? ???? ???? ?????? **light Ganpati image ???? ????? ????.**
+  .temple-frame {
+    height: 405px;
+  }
+}
