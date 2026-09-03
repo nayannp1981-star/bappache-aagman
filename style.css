@@ -38,7 +38,7 @@ a {
   min-height: 100svh;
   overflow: hidden;
   background: linear-gradient(#fff8e9df, #fff0d3e8),
-    url("ganpati-bg.jpg.jpeg") center / cover;
+    url("ganpati.jpeg") center / cover;
   transition: opacity 0.65s ease, visibility 0.65s ease;
 }
 
@@ -105,7 +105,7 @@ a {
   overflow: hidden;
   min-height: 100vh;
   background: linear-gradient(#fff9eadb, #fff5e1e8),
-    url("ganpati-bg.jpg.jpeg") center / cover fixed;
+    url("ganpati.jpeg") center / cover fixed;
 }
 
 .site-header {
